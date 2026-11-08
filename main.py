@@ -1,9 +1,15 @@
+import os
+
+from dotenv import load_dotenv
+
 from bot_telegram import BotTelegram
 
-"Aqui será rodado o código - Tenha a chave de acesso do bot Telegram em mãos"
+load_dotenv()
+# 1) Renomeie o arquivo .env.example para .env
+# 2) Adicione as chaves API das ferramentas utilizadas
+token = os.getenv("TELEGRAM_BOT_TOKEN")
+if not token:
+    token = input("Digite seu token (Chave de acesso feito no BOTFather):")
 
-token = input("Digite seu token (Chave de acesso feito no BOTFather)")
-TOKEN = token
-
-bot_instance = BotTelegram(chave_api=TOKEN)
+bot_instance = BotTelegram(chave_api=token)
 bot_instance.run()

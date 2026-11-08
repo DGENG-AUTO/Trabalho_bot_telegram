@@ -187,8 +187,8 @@ class Music_recognition(Speech_audio_recognition):
     def __init__(self, audio):
         super().__init__(audio)
         self.shazam = Shazam()
-        self.acr_access_key = "54102623e155975d35cfced21a29fa16"
-        self.acr_access_secret = "AINEa9tZg3XdCwmxh5TPevmCSujUwYibGwmNvs4J"
+        self.acr_access_key = os.getenv("ACRCLOUD_ACCESS_KEY", "")
+        self.acr_access_secret = os.getenv("ACRCLOUD_ACCESS_SECRET", "")
         self.acr_requrl = "http://identify-us-west-2.acrcloud.com/v1/identify"    
 
     def search_music(self):
@@ -274,6 +274,9 @@ class Music_recognition(Speech_audio_recognition):
         import time, hmac, hashlib, base64, requests 
 
         print("\nConsultando banco de dados ACRCloud...")
+        if not self.acr_access_key or not self.acr_access_secret:
+            print("Credenciais ACRCloud ausentes. Configure ACRCLOUD_ACCESS_KEY e ACRCLOUD_ACCESS_SECRET no arquivo .env.")
+            return None
 
         # 1. Preparar a Assinatura (Exigência da API)
         timestamp = str(int(time.time()))
@@ -407,53 +410,12 @@ class Music_recognition(Speech_audio_recognition):
                     return None
         except Exception as e:
             print(f"Erro ao buscar no YouTube: {e}")
-            return None
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+            return None   
 
 
     def _buscar_curiosidades(self,titulo):
         """
-            Método que pesquisa no wikipedia as curiosidade sobre o titulo da música
+          (NÂO IMPLEMENTADO NO CÓDIGO)  Método que pesquisa no wikipedia as curiosidade sobre o titulo da música
 
         Args:
             titulo (str): Título da música puxado do Youtuber
@@ -485,22 +447,4 @@ class Music_recognition(Speech_audio_recognition):
             print("Múltiplas páginas encontradas. Escolhendo a primeira opção automaticamente...")
             pagina = wk.page(erro.options[0])  # Pega a primeira sugestão
             print(f"\nCuriosidades sobre '{pagina.title}' (da Wikipedia):")
-            print(pagina.summary[0:800] + "...") 
-
-            
-        
-
-
-                
-       
-
-
-
-
-
-
-    
-    
-
-
-
+            print(pagina.summary[0:800] + "...")

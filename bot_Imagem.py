@@ -72,7 +72,7 @@ class BotImagem:
                  objeto for identificado, retorna uma mensagem informando isso.
         
         """
-        identificador = self.__modelo.predict(source=imagem, conf=0.3, verbose=False)
+        identificador = self.__modelo.predict(source=imagem, conf=0.25, verbose=False)
 
         solucao_final = identificador[0]
         objetos_observados = []

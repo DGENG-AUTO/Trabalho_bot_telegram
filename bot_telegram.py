@@ -96,7 +96,7 @@ class BotTelegram():
 
         if not arquivo_alvo:
             # Em vez de apenas enviar msg, edita o menu que falhou
-            self.bot.edit_message_text("❌ Arquivo expirado ou não encontrado.", chat_id, call.message.message_id)
+            self.bot.edit_message_text("❌ Arquivo expirado ou não encontrado. Envie novamente", chat_id, call.message.message_id)
             return
 
         # Feedback visual imediato
