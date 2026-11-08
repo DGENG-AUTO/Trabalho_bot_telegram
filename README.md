@@ -74,10 +74,11 @@ Esse código é autoral e cunho educativo, logo é distribuído sob a licença *
 
 ## 👤 Autores
 
-- **Ruan Baffa** — desenvolvimento do bot.
-- **Artur Tafiri** — reconhecimento de imagens com YOLO.
-- **Douglas** — reconhecimento de fala e música (`speech_music_recognition.py`).
-- **Maria Vitória** — integração, testes e correções.
+- **Ruan Baffa** — desenvolvimento do bot. [GitHub](https://github.com/arturtafuri)
+- **Artur Tafiri** — reconhecimento de imagens com YOLO. [GitHub](https://github.com/ruanb-andrade7)
+- **Douglas Carvalho (EU)** — reconhecimento de fala e música (`speech_music_recognition.py`). 
+- **Maria Vitória** — integração, testes e correções. 
+
 
 ---
 
